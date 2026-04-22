@@ -1,3 +1,4 @@
+console.log('NOTION_TOKEN:', process.env.NOTION_TOKEN ? '読めてる' : '読めていない');
 const express = require('express');
 const { Client } = require('@line/bot-sdk');
 const { Client: NotionClient } = require('@notionhq/client');
