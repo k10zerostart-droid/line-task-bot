@@ -86,7 +86,7 @@ async function handleEvent(event) {
       const res = await notionRequest('POST', 'databases/' + DATABASE_ID + '/query', {});
       const task = res.results[num];
       if (!task) return client.replyMessage(event.replyToken, { type: 'text', text: '番号が見つかりません' });
-      await notionRequest('PATCH', 'pages/' + task.id, { properties: { 完了: { checkbox: true } } });
+      await notionRequest('PATCH', 'pages/' + task.id, { archived: true });
       return client.replyMessage(event.replyToken, { type: 'text', text: '🗑️ 削除: ' + task.properties.名前.title[0]?.plain_text });
     }
 
